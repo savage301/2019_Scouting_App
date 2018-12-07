@@ -29,4 +29,4 @@ def teamsummary(request):
 			return render(request, 'teamsummary.html', {'search_run':search_run})
 	else:
 		search_run = False
-		return render(request, 'teamsummary.html', {'search_run':search_run})
+		return render(request, 'teamsummary.html', {'search_run':search_run}) 
