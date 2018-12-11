@@ -1,6 +1,9 @@
 # Local Settings File
 local_settings.py
 
+# Don't Include Pictures
+*.jpg
+
 #Backup Files
 *.pyc
 
