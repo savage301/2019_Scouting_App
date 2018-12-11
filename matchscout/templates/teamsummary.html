@@ -17,11 +17,39 @@
 
 {% else %}
 {% for result in results %}
-<p>Team Name {{result.name}}</p>
-<p>Team Number {{result.team_num}}</p>
-<p>Alliance {{result.alliance}}</p>
-<p>--------------------------------------</p>
-{% endfor %}
+{% if forloop.first %}
+    <h3>Team {{result.team_num}}</h3>
+    <h5>Summary:</h5>
+    <p>Average Score: {{score_avg}}</p>
+    <p>Highest Score: {{score_max}}</p>
+    <p>Lowest Score: {{score_min}}</p>
+    <p></p>
+    <h5>Individual Matches:</h5>
+
+	<table class="table table-hover">
+	            <thead>
+
+	                <tr>
+	                    <th>Scouter Name</th>
+	                    <th>Alliance</th>
+	                    <th>Score</th>
+	                    <th>Comments</th>
+	                </tr>
+	            </thead>
+
+	            <tbody>
+	            	{% endif %}
+	                <tr>
+	                    <td>{{result.name}}</td>
+	                    <td>{{result.alliance}}</td>
+	                    <td>{{result.score}}</td>
+	                    <td>{{result.comments}}</td>
+	                </tr>
+	                {% endfor %}
+	            </tbody>
+	        </table>
+
+
 {# We need to add data #}
 {% endif %}
 </body>
