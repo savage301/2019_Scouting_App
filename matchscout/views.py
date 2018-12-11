@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from .forms import matchscout_form
 from .models import matchscout
+
+import os
+from django.conf import settings as settings
+from django.core.files.storage import default_storage
+
 # Create your views here.
 
 def index(request):

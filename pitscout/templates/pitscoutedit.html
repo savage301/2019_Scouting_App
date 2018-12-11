@@ -10,11 +10,10 @@
 <body>
 
 <h1>Pit Scouting Page</h1>
-
-<form action="/pitscoutedit/" method="GET" class="form-bootstrap modal-like-shadow">
-	<input id = "team_number" type = "text" name = "team_number"/>
-	<input class = "btn" type = "Submit" value = "Search"/>
-
+<form action="/pitscout/" method="POST" class="form-bootstrap modal-like-shadow" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form | crispy }}
+	<button class="btn btn-primary" type="submit">Save</button>
 </form>
 
 {# We need to add data #}
