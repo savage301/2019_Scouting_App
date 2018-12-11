@@ -10,3 +10,5 @@ class matchscout(models.Model):
 	alliance = models.CharField(max_length = 4, choices = alliance_colors, default = 'Red')
 
 	score = models.IntegerField(blank = True)
+
+	comments = models.CharField(max_length = 250)
