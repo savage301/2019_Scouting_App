@@ -4,15 +4,25 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+
 <section class="bar background-image-fixed-1 no-mb color-white">
 <body>
 
 <h1>Match Scouting Page</h1>
+
+<p class="whiteout">
+<input type="hidden" id="score" name="variable" value= "{{ form.score }}">
+</p>
+
+
 <form action="/matchscout/" method="POST" class="form-bootstrap modal-like-shadow" enctype="multipart/form-data">
 	{% csrf_token %}
 	{{ form | crispy}}
 	<button class="btn btn-primary" type="submit">Save</button>
 </form>
+
+<img src='{% static "img/minus.jpg" %}' class=plusminus onclick=minus("score")>
+<img src='{% static "img/plus.jpg" %}' class=plusminus onclick=plus("score")>
 {# We need to add data #}
 
 </body>
