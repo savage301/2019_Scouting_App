@@ -8,23 +8,10 @@
     <meta name="keywords" content="blah">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'img/apple-touch-icon-57x57.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/apple-touch-icon-144x144.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{% static 'img/apple-touch-icon-120x120.png' %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{% static 'img/apple-touch-icon-152x152.png' %}"/>
-    <link rel="icon" type="image/png" href="{% static 'img/favicon-32x32.png' %}" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="{% static 'img/favicon-16x16.png' %}" sizes="16x16"/>
     <meta name="application-name" content="Team 573 2019 Scouting App"/>
     <meta name="msapplication-TileColor" content="#FFFFFF"/>
-    <meta name="msapplication-TileImage" content="{% static 'img/mstile-144x144.png' %}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
-    <link rel="stylesheet" href="{% static 'css/cookiealert.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <script type="text/javascript" language="Javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href = "{% static 'css/custom.css' %}">
+    {% load staticfiles %}
 {% endblock %}
 
 <!-- nav bar-->
@@ -70,6 +57,5 @@
 
 {% block bootstrap4_extra_script %}
     <!-- <script rel="text/javascript" src="{% static 'js/cookiealert-dependencies.js' %}"></script> -->
-    <script rel="text/javascript" src="{% static 'js/cookiealert-standalone.js' %}"></script>
-    <!-- <script rel="text/javascript" src="{% static 'js/custom.js' %}"></script> -->
+    <script rel="text/javascript" src="{% static 'js/custom.js' %}"></script>
 {% endblock %}
