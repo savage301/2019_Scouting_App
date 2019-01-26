@@ -12,6 +12,7 @@
 <h1>Pit Scouting Page</h1>
 
 <div class="container">
+	<h3> Pre Match & Sandstorm </h3>
 	<div class="row">
 	<div class="col-sm-6">
 	Team Number: {{form.team_num}} </div>
@@ -24,59 +25,60 @@
 	Drivetrain type: {{form.drivetrain}}</div></div>
 </div>
 <br>
-<h3> Pre Match & Sandstorm </h3>
-<br>
 <div class="container">
 	<div class="row">
 	<div class="col-sm-6">
-	start on level 2? {{form.platform_start}}</div></div>
+	Start on level 2? {{form.platform_start}}</div></div>
 </div>
 <br>
 <div class="container">
 	<div class="row">
 	<div class="col-sm-6">
-	autonomous? {{form.auton}}</div>
+	Autonomous? {{form.auton}}</div>
 	<div class="col-sm-6">
-	camera vision back to drivers station? {{form.camerafeed}}</div></div>
+	Camera vision back to drivers station? {{form.camerafeed}}</div></div>
 </div>
+
+
 <br>
-<h3> Teleop </h3>
-<br>
-<div class="container">
+<div class="container border-top">
+	<h3> Teleop </h3>
 	<div class="row">
 	<div class="col-sm-6">
-	disk intake? {{form.disk}}</div>
+	Disk intake: {{form.disk}}</div>
 	<div class="col-sm-6">
-	ball intake? {{form.ball}}</div></div>
+	Ball intake: {{form.ball}}</div></div>
 	<div class="row">
 	<div class="col-sm-6">
-	above ground level scoring? {{form.above_ground}}</div></div>
+	Above ground level scoring? {{form.above_ground}}</div></div>
 	<div class="row">
 	<div class="col-sm-12">
-	priority regarding scoring {{form.scoring_priority}}</div></div>
+	Priority regarding scoring: {{form.scoring_priority}}</div></div>
 </div>
+
+
 <br>
-<h3> End of Match </h3>
-<br>
-<div class="container">
+<div class="container border-top">
+	<h3> End of Match </h3>
 	<div class="row">
+	<div class="col-sm-3">
+	Ending level {{form.platform_end}}</div>
 	<div class="col-sm-6">
-	ending level {{form.platform_end}}</div>
-	<div class="col-sm-6">
-	time? {{form.climb_time}}</div></div>
+	Time to get on platform (in seconds)  {{form.climb_time}}</div></div>
 </div>
+
+
 <br>
-<h3> Other </h3>
-<br>
-<div class="container">
+<div class="container border-top">
+	<h3> Other </h3>
 	<div class="row">
 	<div class="col-sm-6">
-	main strength? {{form.strength}}</div></div>
+	Main strength: {{form.strength}}</div></div>
 	<div class="row">
 	<div class="col-sm-6">
-	comments: {{form.comments}}</div>
+	Comments: {{form.comments}}</div>
 	<div class="col-sm-6">
-	scouter name: {{form.name}}</div></div>
+	Scouter Name: {{form.name}}</div></div>
 </div>
 
 <button class="btn btn-primary" type="submit">Save</button>
