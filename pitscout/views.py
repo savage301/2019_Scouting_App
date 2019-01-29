@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from .forms import pitscout_form
 from .models import pitscout
 
@@ -6,6 +7,7 @@ from .models import pitscout
 def pitscout(request):
 	if request.method == 'POST':
 		form = pitscout_form(request.POST)
+    
 		if form.is_valid():
 			obj = form.save(commit=False)
 			obj.save()
@@ -13,3 +15,4 @@ def pitscout(request):
 	
 	form = pitscout_form()
 	return render(request, 'pitscout.html', {'form': form})
+

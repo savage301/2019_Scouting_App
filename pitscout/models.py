@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class pitscout(models.Model):
-	
 
 	team_num = models.IntegerField()
 
@@ -39,3 +38,5 @@ class pitscout(models.Model):
 	comments = models.TextField()
 
 	name = models.CharField(max_length = 50)
+
+	robot_photo = models.FileField(upload_to='robot_photo/',max_length=1000,default='')
