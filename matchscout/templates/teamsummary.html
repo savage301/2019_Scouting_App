@@ -18,32 +18,201 @@
 {% else %}
 {% for result in results %}
 {% if forloop.first %}
-    <h3>Team {{result.team_num}}</h3>
-    <h5>Summary:</h5>
-    <p>Average Score: {{score_avg}}</p>
-    <p>Highest Score: {{score_max}}</p>
-    <p>Lowest Score: {{score_min}}</p>
-    <p></p>
+    <h3>Team {{result.team_num}} Summary</h3>
+    <br>
+    {# Sandstorm stats #}
+    <div class="container">
+		<h5> Sandstorm</h5>
+		<table class="table table-hover">
+	            <thead>
+	                <tr>
+	                    <th>Hatches</th>
+	                    <th>Average</th>                  
+	                    <th>Max</th>
+	                    <th>Min</th>
+	                </tr>
+	            </thead>
+
+	            <tbody>
+	            	<tr>
+	                <td> Level 1</td>
+	                <td> {{s_hatches_1_avg}}</td>            
+	                <td> {{s_hatches_1_max}}</td>
+	                <td> {{s_hatches_1_min}}</td>
+	                </tr>
+	                <tr>
+	                <td> Level 2</td>
+	                <td> {{s_hatches_2_avg}}</td>            
+	                <td> {{s_hatches_2_max}}</td>
+	                <td> {{s_hatches_2_min}}</td>
+	            	</tr>
+	            	<tr>
+	            	<td> Level 3</td>
+	            	<td> {{s_hatches_3_avg}}</td>            
+	            	<td> {{s_hatches_3_max}}</td>
+	                <td> {{s_hatches_3_min}}</td>
+	            </tbody>
+	            <thead>
+	            	<tr>
+	            		<th>Cargo</th>
+	            		<th>Average</th>
+	            		<th>Max</th>
+	            		<th>Min</th>
+	            	</tr>
+	            </thead>
+
+	            <tbody>
+	            	<tr>
+	                <td> Level 1</td>
+	                <td> {{s_cargo_1_avg}}</td>             
+	                <td> {{s_cargo_1_max}}</td>
+	                <td> {{s_cargo_1_min}}</td>
+	                </tr>
+	                <tr>
+	                <td> Level 2</td>
+	                <td> {{s_cargo_2_avg}}</td>             
+	                <td> {{s_cargo_2_max}}</td>
+	                <td> {{s_cargo_2_min}}</td>
+	            	</tr>
+	            	<tr>
+	            	<td> Level 3</td>
+	            	<td> {{s_cargo_3_avg}}</td>             
+	            	<td> {{s_cargo_3_max}}</td>
+	                <td> {{s_cargo_3_min}}</td>
+	            </tbody>
+	        </table>
+
+
+	</div>
+
+	{# Teleop stats #}
+
+	<div class="container">
+		<h5>Teleop</h5>
+		<table class="table table-hover">
+	            <thead>
+	                <tr>
+	                    <th>Hatches</th>
+	                    <th>Average</th>                  
+	                    <th>Max</th>
+	                    <th>Min</th>
+	                </tr>
+	            </thead>
+
+	            <tbody>
+	            	<tr>
+	                <td> Level 1</td>
+	                <td> {{t_hatches_1_avg}}</td>           
+	                <td> {{t_hatches_1_max}}</td>
+	                <td> {{t_hatches_1_min}}</td>
+	                </tr>
+	                <tr>
+	                <td> Level 2</td>
+	                <td> {{t_hatches_2_avg}}</td>           
+	                <td> {{t_hatches_2_max}}</td>
+	                <td> {{t_hatches_2_min}}</td>
+	            	</tr>
+	            	<tr>
+	            	<td> Level 3</td>
+	            	<td> {{t_hatches_3_avg}}</td>           
+	            	<td> {{t_hatches_3_max}}</td>
+	                <td> {{t_hatches_3_min}}</td>
+	            </tbody>
+	            <thead>
+	            	<tr>
+	            		<th>Cargo</th>
+	            		<th>Average</th>
+	            		<th>Max</th>
+	            		<th>Min</th>
+	            	</tr>
+	            </thead>
+
+	            <tbody>
+	            	<tr>
+	                <td> Level 1</td>
+	                <td> {{t_cargo_1_avg}}</td>             
+	                <td> {{t_cargo_1_max}}</td>
+	                <td> {{t_cargo_1_min}}</td>
+	                </tr>
+	                <tr>
+	                <td> Level 2</td>
+	                <td> {{t_cargo_2_avg}}</td>             
+	                <td> {{t_cargo_2_max}}</td>
+	                <td> {{t_cargo_2_min}}</td>
+	            	</tr>
+	            	<tr>
+	            	<td> Level 3</td>
+	            	<td> {{t_cargo_3_avg}}</td>             
+	            	<td> {{t_cargo_3_max}}</td>
+	                <td> {{t_cargo_3_min}}</td>
+	            </tbody>
+	        </table>
+		
+		<h6>End on Level 1: {{level_1}}%</h6>
+		<h6>End on Level 2: {{level_2}}%</h6>
+		<h6>End on Level 3: {{level_3}}%</h6>  
+
+
+	</div>
+	<div class="container">
+		<h5>Pit Data</h5>
+		{% for result_pit in results_pit %}
+		<div class="row">
+		Drivetrain type: {{result_pit.drivetrain}}</div>
+		<div class="row">
+		Autonomus: {{result_pit.auton}}</div>
+		{% endfor %}
+	</div>
+	<br>
+	<br>
     <h5>Individual Matches:</h5>
 
 	<table class="table table-hover">
 	            <thead>
 
 	                <tr>
-	                    <th>Scouter Name</th>
+	                    <th>Match Number</th>
 	                    <th>Alliance</th>
-	                    <th>Scores</th>
+	                    <th>Starting Level</th>
+	                    <th>Sandstorm Hatches L1</th>
+	                    <th>Sandstorm Hatches L2</th>
+	                    <th>Sandstorm Hatches L3</th>
+	                    <th>Sandstorm Cargo L1</th>
+	                    <th>Sandstorm Cargo L2</th>
+	                    <th>Sandstorm Cargo L3</th>
+	                    <th>Teleop Hatches L1</th>
+	                    <th>Teleop Hatches L2</th>
+	                    <th>Teleop Hatches L3</th>
+	                    <th>Teleop Cargo L1</th>
+	                    <th>Teleop Cargo L2</th>
+	                    <th>Teleop Cargo L3</th>
+	                    <th>Ending Position</th>
 	                    <th>Comments</th>
+	                    <th>Scouter Name</th>
 	                </tr>
 	            </thead>
 
 	            <tbody>
 	            	{% endif %}
 	                <tr>
-	                    <td>{{result.name}}</td>
-	                    <td>{{result.alliance}}</td>
-	                    <td>{{result.score}}</td>
-	                    <td>{{result.comments}}</td>
+	                <td>{{result.match_num}}</td>
+	                <td>{{result.alliance}}</td>
+	                <td>{{result.starting}}</td>
+	                <td>{{result.s_hatches_1}}</td>
+	                <td>{{result.s_hatches_2}}</td>
+	                <td>{{result.s_hatches_3}}</td>
+	                <td>{{result.s_cargo_1}}</td>
+	                <td>{{result.s_cargo_2}}</td>
+	                <td>{{result.s_cargo_3}}</td>
+	                <td>{{result.t_hatches_1}}</td>
+	                <td>{{result.t_hatches_2}}</td>
+	                <td>{{result.t_hatches_3}}</td>
+	                <td>{{result.t_cargo_1}}</td>
+	                <td>{{result.t_cargo_2}}</td>
+	                <td>{{result.t_cargo_3}}</td>
+	                <td>{{result.ending}}</td>
+	                <td>{{result.comments}}</td>
+	                <td>{{result.name}}</td>
 	                </tr>
 	                {% endfor %}
 	            </tbody>

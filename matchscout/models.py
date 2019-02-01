@@ -32,6 +32,9 @@ class matchscout(models.Model):
 	t_cargo_2 = models.IntegerField(default = 0)
 	t_cargo_3 = models.IntegerField(default = 0)
 
+	#s_hatches_sum = models.(s_hatches_1 + s_hatches_2 + s_hatches_3)
+
+
 	# post-match info
 	ending_level = ((0, 'None'), (1, 'Level 1'), (2, 'Level 2'), (3, 'Level 3'))
 	ending = models.IntegerField(choices = ending_level, default = 'None')
