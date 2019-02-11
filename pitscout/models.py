@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class pitscout(models.Model):
 
-	team_num = models.IntegerField()
+	team_num = models.IntegerField(unique = True)
 
 	drivetrain_types = (('4-wheel tank','4-wheel tank'), ('6-wheel tank','6-wheel tank'),('Swerve','Swerve'),('Omni','Omni'),('Mechanim','Mechanim'),('Other','Other'))
 	drivetrain = models.CharField(max_length = 20, choices = drivetrain_types, default = 'Other')
@@ -16,11 +16,11 @@ class pitscout(models.Model):
 
 	climb_time = models.IntegerField()
 
-	disk_options = (('ground','Ground'),('h_player','Human Player'),('none','None'))
-	disk = models.CharField(max_length = 10, choices = disk_options, default = 'None')
+	disk_options = (('Ground','Ground'),('Human Player','Human Player'),('None','None'),('Both','Both'))
+	disk = models.CharField(max_length = 20, choices = disk_options, default = 'None')
 
-	ball_options = (('ground','Ground'),('h_player','Human Player'),('none','None'))
-	ball = models.CharField(max_length = 10, choices = ball_options, default = 'None')
+	ball_options = (('Ground','Ground'),('Human Player','Human Player'),('None','None'),('Both','Both'))
+	ball = models.CharField(max_length = 20, choices = ball_options, default = 'None')
 
 	auton_yn = (('yes','yes'),('no','no'))
 	auton = models.CharField(max_length = 5, choices = auton_yn, default = 'yes')

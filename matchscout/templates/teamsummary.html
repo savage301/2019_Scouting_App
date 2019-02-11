@@ -155,12 +155,25 @@
 
 	</div>
 	<div class="container">
-		<h5>Pit Data</h5>
 		{% for result_pit in results_pit %}
+		<h5><u>Pit Data</u></h5>
+		
 		<div class="row">
-		Drivetrain type: {{result_pit.drivetrain}}</div>
+		<div class="col-sm-9">
+		Drivetrain type: {{result_pit.drivetrain}}</div></div>
 		<div class="row">
-		Autonomus: {{result_pit.auton}}</div>
+		<div class="col-sm-9">
+		Autonomous: {{result_pit.auton}}</div></div>
+		<div class="row">
+		<div class="col-sm-9">
+		Disk Intake: {{result_pit.disk}}</div></div>
+		<div class="row">
+		<div class="col-sm-9">
+		Ball Intake: {{result_pit.ball}}</div></div>
+		<div class="row">
+		<div class="col-sm-9">
+		Scoring Priority: {{result_pit.scoring_priority}}</div></div>
+
 		{% endfor %}
 	</div>
 	<br>
