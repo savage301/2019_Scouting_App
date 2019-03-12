@@ -14,6 +14,9 @@ class matchscout(models.Model):
 
 	starting_level = ((1, 'Level 1'), (2, 'Level 2'))
 	starting = models.IntegerField(choices = starting_level, default = 'Level 1')
+
+	starting_piece = (('Hatch','Hatch'),('Cargo','Cargo'))
+	start_piece = models.CharField(max_length = 10, choices = starting_piece, default = 'Hatch')
 	# during match info
 
 	s_hatches_1 = models.IntegerField(default = 0)
