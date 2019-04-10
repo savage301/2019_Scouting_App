@@ -9,11 +9,10 @@ import shutil
 from datetime import datetime
 import json
 import sqlite3
-from PIL import Image
-import PIL
+
 
 #Print Script Start
-print '!!!!!!!!! Script Start !!!!!!!!!'
+#print '!!!!!!!!! Script Start !!!!!!!!!'
 
 #Changes Working Directory To a Known Location
 #os.chdir('C:\Users\es2433\Desktop\PV_PythonSandbox\ExcelBookLayout')
@@ -26,7 +25,7 @@ CurrDateTime = CurrDateTime.replace('.','-')
 shutil.copy('ScoutingData_template.xlsx','ScoutingData_'+CurrDateTime+'.xlsx')
 
 #Connect To Match Database
-db = sqlite3.connect('C:\dev\scouting_app_2019\2019_Scouting_App\db')
+db = sqlite3.connect('C:\\dev\\2019_Scouting_App_Team_573\\2019_Scouting_App\\2019_Scouting_App\\db.sqlite3')
 c = db.cursor()
 
 #Connect To Pit Database
@@ -77,11 +76,11 @@ for inc, team in enumerate(TeamList):
     rows_pit = c.fetchall()
 
     for inc3, row_pit in enumerate(rows_pit):
-        ws2.cell(row=inc3+5,column=2).value = row_pit[4]
-        ws2.cell(row=inc3+6,column=2).value = row_pit[8]
-        ws2.cell(row=inc3+7,column=2).value = row_pit[15]
-        ws2.cell(row=inc3+8,column=2).value = row_pit[7]
-        ws2.cell(row=inc3+9,column=2).value = row_pit[12]
+        ws2.cell(row=inc3+5,column=2).value = row_pit[3]
+        ws2.cell(row=inc3+6,column=2).value = row_pit[7]
+        ws2.cell(row=inc3+7,column=2).value = row_pit[14]
+        ws2.cell(row=inc3+8,column=2).value = row_pit[6]
+        ws2.cell(row=inc3+9,column=2).value = row_pit[11]
 
     #Put in match scouting data
     c.execute("SELECT * FROM matchscout_matchscout WHERE team_num="+team)
@@ -111,19 +110,26 @@ for inc, team in enumerate(TeamList):
         #somedata cleanup
         
         #Put Data into proper cells on worksheet
-        ws2.cell(row=inc2+17,column=1).value = row[6]
-        ws2.cell(row=inc2+17,column=2).value = row[7]
-        ws2.cell(row=inc2+17,column=3).value = row[8]
-        ws2.cell(row=inc2+17,column=4).value = row[9]
-        ws2.cell(row=inc2+17,column=5).value = row[10]
-        ws2.cell(row=inc2+17,column=6).value = row[11]
-        ws2.cell(row=inc2+17,column=7).value = row[12]
-        ws2.cell(row=inc2+17,column=8).value = row[13]
-        ws2.cell(row=inc2+17,column=9).value = row[14]
-        ws2.cell(row=inc2+17,column=10).value = row[20]
-        ws2.cell(row=inc2+17,column=11).value = row[15]
-        ws2.cell(row=inc2+17,column=12).value = row[16]
-        ws2.cell(row=inc2+17,column=13).value = row[17]
+        ws2.cell(row=inc2+17,column=1).value = row[3]
+        ws2.cell(row=inc2+17,column=2).value = row[4]
+        ws2.cell(row=inc2+17,column=3).value = row[1]
+        ws2.cell(row=inc2+17,column=4).value = row[5]
+        ws2.cell(row=inc2+17,column=5).value = row[6]
+        ws2.cell(row=inc2+17,column=6).value = row[7]
+        ws2.cell(row=inc2+17,column=7).value = row[8]
+        ws2.cell(row=inc2+17,column=8).value = row[9]
+        ws2.cell(row=inc2+17,column=9).value = row[10]
+        ws2.cell(row=inc2+17,column=10).value = row[11]
+        ws2.cell(row=inc2+17,column=11).value = row[12]
+        ws2.cell(row=inc2+17,column=12).value = row[13]
+        ws2.cell(row=inc2+17,column=13).value = row[14]
+        ws2.cell(row=inc2+17,column=12).value = row[15]
+        ws2.cell(row=inc2+17,column=13).value = row[16]
+        ws2.cell(row=inc2+17,column=12).value = row[17]
+        
+        ws2.cell(row=inc2+17,column=13).value = row[16]
+        ws2.cell(row=inc2+17,column=12).value = row[15]
+        ws2.cell(row=inc2+17,column=13).value = row[16]
     #figure out how to get % values in for following        
         #ws2.cell(row=inc2+17,column=14).value = row[12]
         #ws2.cell(row=inc2+17,column=15).value = row[5]
@@ -132,19 +138,19 @@ for inc, team in enumerate(TeamList):
         #ws2.cell(row=inc2+17,column=18).value = row[3]
 
 ###Put in picture ----------------------------------
-    if (os.path.isfile('Pic/'+team+'.jpg')): #Check to make sure picture exists
-        teamnum = team
-    else:
-        teamnum ='default' #Stand in Photo For Teams With Missing Picture
-
-    #print teamnum
-    #anchor = 'G1'
-    
-    im = Image.open('Pic/'+teamnum+'.jpg')
-    image2 = im.resize((250,250),Image.ANTIALIAS)
-    image2.save(teamnum + "_thumbnail.jpg", "JPEG")
-    img = openpyxl.drawing.image.Image(teamnum + "_thumbnail.jpg")
-    ws2.add_image(img,'G3')
+##    if (os.path.isfile('Pic/'+team+'.jpg')): #Check to make sure picture exists
+##        teamnum = team
+##    else:
+##        teamnum ='default' #Stand in Photo For Teams With Missing Picture
+##
+##    #print teamnum
+##    #anchor = 'G1'
+##    
+##    im = Image.open('Pic/'+teamnum+'.jpg')
+##    image2 = im.resize((250,250),Image.ANTIALIAS)
+##    image2.save(teamnum + "_thumbnail.jpg", "JPEG")
+##    img = openpyxl.drawing.image.Image(teamnum + "_thumbnail.jpg")
+##    ws2.add_image(img,'G3')
 # ------------------------------------------------------
 
     # Add in Summary Page Info
@@ -198,4 +204,4 @@ for inc, team in enumerate(TeamList):
 wb.save('ScoutingData_'+CurrDateTime+'.xlsx')
 
 #Print Script End
-print '!!!!!!!!! File Created !!!!!!!!!'
+print ('!!!!!!!!! File Created !!!!!!!!!')
